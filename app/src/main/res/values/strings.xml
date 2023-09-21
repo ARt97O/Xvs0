@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">XvsO</string>
+    <string name="chackWinX">Х пемеміг</string>
+    <string name="chackWinO">О переміг</string>
+</resources>
