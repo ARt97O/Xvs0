@@ -7,11 +7,12 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/but"
+        android:id="@+id/but1"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:onClick="onClickBut"
+        android:onClick="onButtonClick"
         android:textSize="40sp"
+        android:tag="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.176"
@@ -23,95 +24,99 @@
         android:id="@+id/but2"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:layout_marginTop="16dp"
-        android:onClick="onClickBut2"
+        android:onClick="onButtonClick"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/but"
-        app:layout_constraintStart_toStartOf="@+id/but"
-        app:layout_constraintTop_toBottomOf="@+id/but" />
+        android:tag="2"
+        app:layout_constraintEnd_toEndOf="@id/but1"
+        app:layout_constraintStart_toStartOf="@id/but1"
+        app:layout_constraintTop_toBottomOf="@id/but1"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/but3"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:layout_marginTop="16dp"
-        android:onClick="onClickBut3"
+        android:onClick="onButtonClick"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/but2"
-        app:layout_constraintStart_toStartOf="@+id/but2"
-        app:layout_constraintTop_toBottomOf="@+id/but2" />
+        android:tag="3"
+        app:layout_constraintEnd_toEndOf="@id/but2"
+        app:layout_constraintStart_toStartOf="@id/but2"
+        app:layout_constraintTop_toBottomOf="@id/but2"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/but4"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:layout_marginStart="16dp"
-        android:onClick="onClickBut4"
+        android:onClick="onButtonClick"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="@+id/but"
-        app:layout_constraintStart_toEndOf="@+id/but"
-        app:layout_constraintTop_toTopOf="@+id/but" />
+        android:tag="4"
+        app:layout_constraintBottom_toBottomOf="@id/but1"
+        app:layout_constraintStart_toEndOf="@id/but1"
+        app:layout_constraintTop_toTopOf="@id/but1"
+        android:layout_marginStart="16dp" />
 
     <Button
         android:id="@+id/but5"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:layout_marginTop="16dp"
-        android:onClick="onClickBut5"
+        android:onClick="onButtonClick"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/but4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/but4"
-        app:layout_constraintTop_toBottomOf="@+id/but4" />
+        android:tag="5"
+        app:layout_constraintEnd_toEndOf="@id/but4"
+        app:layout_constraintStart_toStartOf="@id/but4"
+        app:layout_constraintTop_toBottomOf="@id/but4"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/but6"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:layout_marginTop="16dp"
-        android:onClick="onClickBut6"
+        android:onClick="onButtonClick"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/but5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/but5"
-        app:layout_constraintTop_toBottomOf="@+id/but5" />
+        android:tag="6"
+        app:layout_constraintEnd_toEndOf="@id/but5"
+        app:layout_constraintStart_toStartOf="@id/but5"
+        app:layout_constraintTop_toBottomOf="@id/but5"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/but7"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:layout_marginStart="16dp"
-        android:onClick="onClickBut7"
+        android:onClick="onButtonClick"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="@+id/but4"
-        app:layout_constraintStart_toEndOf="@+id/but4"
-        app:layout_constraintTop_toTopOf="@+id/but4"
-        app:layout_constraintVertical_bias="0.0" />
+        android:tag="7"
+        app:layout_constraintBottom_toBottomOf="@id/but4"
+        app:layout_constraintStart_toEndOf="@id/but4"
+        app:layout_constraintTop_toTopOf="@id/but4"
+        android:layout_marginStart="16dp" />
 
     <Button
         android:id="@+id/but8"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:layout_marginTop="16dp"
-        android:onClick="onClickBut8"
+        android:onClick="onButtonClick"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/but7"
-        app:layout_constraintStart_toStartOf="@+id/but7"
-        app:layout_constraintTop_toBottomOf="@+id/but7" />
+        android:tag="8"
+        app:layout_constraintEnd_toEndOf="@id/but7"
+        app:layout_constraintStart_toStartOf="@id/but7"
+        app:layout_constraintTop_toBottomOf="@id/but7"
+        android:layout_marginTop="16dp" />
 
     <Button
         android:id="@+id/but9"
         android:layout_width="88dp"
         android:layout_height="88dp"
-        android:layout_marginTop="16dp"
-        android:onClick="onClickBut9"
+        android:onClick="onButtonClick"
         android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@+id/but8"
-        app:layout_constraintStart_toStartOf="@+id/but8"
-        app:layout_constraintTop_toBottomOf="@+id/but8" />
-
+        android:tag="9"
+        app:layout_constraintEnd_toEndOf="@id/but8"
+        app:layout_constraintStart_toStartOf="@id/but8"
+        app:layout_constraintTop_toBottomOf="@id/but8"
+        android:layout_marginTop="16dp" />
     <TextView
-        android:id="@+id/textСenter"
+        android:id="@+id/textEnter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -128,9 +133,9 @@
         android:layout_marginBottom="160dp"
         android:text="0"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/but"
-        app:layout_constraintEnd_toEndOf="@+id/but"
-        app:layout_constraintStart_toStartOf="@+id/but" />
+        app:layout_constraintBottom_toTopOf="@+id/but1"
+        app:layout_constraintEnd_toEndOf="@+id/but1"
+        app:layout_constraintStart_toStartOf="@+id/but1" />
 
     <Button
         android:id="@+id/chackWinO"
@@ -165,8 +170,6 @@
         app:layout_constraintBottom_toTopOf="@+id/chackWinO"
         app:layout_constraintEnd_toEndOf="@+id/chackWinO"
         app:layout_constraintStart_toStartOf="@+id/chackWinO" />
-
-    <!-- Auto layout, variables, and unit scale are not yet supported -->
 
 
 

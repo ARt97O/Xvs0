@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">XvsO</string>
-    <string name="chackWinX">Х пемеміг</string>
+    <string name="winX">Виграв Х</string>
+    <string name="winO">Виграв О</string>
+    <string name="nowX">Ходить Х</string>
+    <string name="nowO">Ходить O</string>
+    <string name="chackWinX">Х переміг</string>
     <string name="chackWinO">О переміг</string>
+    <string name="tie">Нічія\n</string>
 </resources>

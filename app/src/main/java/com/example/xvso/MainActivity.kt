@@ -3,22 +3,30 @@ package com.example.xvso
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import com.example.xvso.databinding.ActivityMainBinding
+import kotlinx.coroutines.flow.combine
 
 class MainActivity : AppCompatActivity() {
     lateinit var bind: ActivityMainBinding
 
-    // Зміна check використовується, щоб вивести X або 0, check = 1 це X, check = 2 це 0.
-    // The check variable is used to output X or 0, check = 1 is X, check = 2 is 0.
     var check = 2
-    var checkWinX = 0
-    var checkWinO = 0
+    var howMuchXwin = 0
+    var howMuchOwin = 0
     val x = "X"
     val o = "O"
-    val winX = "Виграв Х"
-    val winO = "Виграв О"
-    val nowX = "Ходить Х"
-    val nowO = "Ходить O"
+    var boardState = arrayOfNulls<String>(9)
+
+    val winCombinations = arrayOf(
+        intArrayOf(1, 2, 3),
+        intArrayOf(4, 5, 6),
+        intArrayOf(7, 8, 9),
+        intArrayOf(1, 4, 7),
+        intArrayOf(2, 5, 8),
+        intArrayOf(3, 6, 9),
+        intArrayOf(1, 5, 9),
+        intArrayOf(3, 5, 7)
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,267 +34,68 @@ class MainActivity : AppCompatActivity() {
         setContentView(bind.root)
     }
 
-    // Виводить на екран хто ходить
-    // Displays who is walking on the screen
-    fun checkMove(){
-        if (check == 1) {
-            bind.textEnter.text = nowX
-        }else if (check == 2) {
-            bind.textEnter.text = nowO
-        }
-    }
-    fun onClickBut(view: View) {
-        if (check == 1) {
-            bind.but.text = x
-            check += 1
-        } else if (check == 2) {
-            bind.but.text = o
-            check -= 1
-        }
-        checkMove()
-        chakingWinX()
-        chakingWinO()
-        }
-
-    fun onClickBut2(view: View) {
-        if (bind.but2.text != x && bind.but2.text != o) {
-            if (check == 1) {
-                bind.but2.text = x
-                check += 1
-            } else if (check == 2) {
-                bind.but2.text = o
-                check -= 1
-            }
-            checkMove()
-            chakingWinX()
-            chakingWinO()
-        }
+    private fun messageCouse(winner: String){
+        val message = if (winner == x) getString(R.string.chackWinX) else getString(R.string.chackWinO)
+        bind.textEnter.text = message
     }
 
-    fun onClickBut3(view: View) {
-        if (bind.but3.text != x && bind.but3.text != o) {
-            if (check == 1) {
-                bind.but3.text = x
-                check += 1
-            } else if (check == 2) {
-                bind.but3.text = o
-                check -= 1
-            }
-            checkMove()
-            chakingWinX()
-            chakingWinO()
-        }
+    private fun updateWinCounters() {
+        bind.chackWinX.text = "$howMuchXwin" // Оновлюємо кількість перемог X
+        bind.chackWinO.text = "$howMuchOwin" // Оновлюємо кількість перемог O
     }
 
-    fun onClickBut4(view: View) {
-        if (bind.but4.text != x && bind.but4.text != o) {
-            if (check == 1) {
-                bind.but4.text = x
-                check += 1
-            } else if (check == 2) {
-                bind.but4.text = o
-                check -= 1
-            }
-            checkMove()
-            chakingWinX()
-            chakingWinO()
-        }
+    private fun announceWinner(winner: String) {
+        val message = if (winner == x) getString(R.string.chackWinX) else getString(R.string.chackWinO)
+        bind.textEnter.text = message
+        if (winner == x) howMuchXwin += 1 else howMuchOwin += 1
+        updateWinCounters() // Оновлюємо UI з лічильниками перемог
+        resetBoard() // Скидуємо дошку для нової гри
     }
 
-    fun onClickBut5(view: View) {
-        if (bind.but5.text != x && bind.but5.text != o) {
-            if (check == 1) {
-                bind.but5.text = x
-                check += 1
-            } else if (check == 2) {
-                bind.but5.text = o
-                check -= 1
-            }
-            checkMove()
-            chakingWinX()
-            chakingWinO()
-        }
+
+    private fun togglePlayer() {
+        check = if (check == 1) 2 else 1
+        val message = if (check == 1) getString(R.string.nowX) else getString(R.string.nowO)
+        bind.textEnter.text = message
+    }
+    private fun resetBoard() {
+        boardState.fill(null) // Очистити стан дошки
+        // Очистити текст на всіх кнопках
+        listOf(bind.but1, bind.but2, bind.but3, bind.but4, bind.but5, bind.but6, bind.but7, bind.but8, bind.but9).forEach { it.text = "" }
+        // Скинути гравця до початкового стану, якщо потрібно
+        check = 2
+        togglePlayer()
     }
 
-    fun onClickBut6(view: View) {
-        if (bind.but6.text != x && bind.but6.text != o) {
-            if (check == 1) {
-                bind.but6.text = x
-                check += 1
-            } else if (check == 2) {
-                bind.but6.text = o
-                check -= 1
-            }
-            checkMove()
-            chakingWinX()
-            chakingWinO()
-        }
-    }
 
-    fun onClickBut7(view: View) {
-        if (bind.but7.text != x && bind.but7.text != o) {
-            if (check == 1) {
-                bind.but7.text = x
-                check += 1
-            } else if (check == 2) {
-                bind.but7.text = o
-                check -= 1
-            }
-            checkMove()
-            chakingWinX()
-            chakingWinO()
-        }
-    }
-
-    fun onClickBut8(view: View) {
-        if (bind.but8.text != x && bind.but8.text != o) {
-            if (check == 1) {
-                bind.but8.text = x
-                check += 1
-            } else if (check == 2) {
-                bind.but8.text = o
-                check -= 1
-            }
-            checkMove()
-            chakingWinX()
-            chakingWinO()
-        }
-    }
-
-    fun onClickBut9(view: View) {
-        if (bind.but9.text != x && bind.but9.text != o) {
-            if (check == 1) {
-                bind.but9.text = x
-                check += 1
-            } else if (check == 2) {
-                bind.but9.text = o
-                check -= 1
-            }
-            checkMove()
-            chakingWinX()
-            chakingWinO()
-        }
-    }
-    // Чистить ігрове поле
-    // Cleans the playing field
-    fun reset() {
-        bind.but.text = ""
-        bind.but2.text = ""
-        bind.but3.text = ""
-        bind.but4.text = ""
-        bind.but5.text = ""
-        bind.but6.text = ""
-        bind.but7.text = ""
-        bind.but8.text = ""
-        bind.but9.text = ""
-        bind.but.text = ""
-    }
-        //Функція перевірки перемоги X
-        // X win check feature
-    fun chakingWinX() {
-            while (true) {
-                if (bind.but.text == x && bind.but4.text == x && bind.but7.text == x) {
-                    bind.textEnter.text = winX
-                    checkWinX += 1
-                    reset()
-                }
-                if (bind.but2.text == x && bind.but5.text == x && bind.but8.text == x) {
-                    bind.textEnter.text = winX
-                    checkWinX +=1
-                    reset()
-                }
-                if (bind.but3.text == x && bind.but6.text == x && bind.but9.text == x) {
-                    bind.textEnter.text = winX
-                    checkWinX +=1
-                    reset()
-                }
-                if (bind.but.text == x && bind.but2.text == x && bind.but3.text == x) {
-                    bind.textEnter.text = winX
-                    checkWinX +=1
-                    reset()
-                }
-                if (bind.but4.text == x && bind.but5.text == x && bind.but6.text == x) {
-                    bind.textEnter.text = winX
-                    checkWinX +=1
-                    reset()
-                }
-                if (bind.but7.text == x && bind.but8.text == x && bind.but9.text == x) {
-                    bind.textEnter.text = winX
-                    checkWinX +=1
-                    reset()
-                }
-                if (bind.but.text == x && bind.but5.text == x && bind.but9.text == x) {
-                    bind.textEnter.text = winX
-                    checkWinX +=1
-                    reset()
-                }
-                if (bind.but3.text == x && bind.but5.text == x && bind.but7.text == x) {
-                    bind.textEnter.text = winX
-                    checkWinX +=1
-                    reset()
-                }
-                bind.chackWinO.text = checkWinO.toString()
-                bind.chackWinX.text = checkWinX.toString()
-                resetDraw()
-                break
+    //виграш команди
+    private fun checkWin(): Boolean {
+        for (player in listOf(x, o)) {
+            if (winCombinations.any { combination ->
+                    combination.all { index -> boardState[index - 1] == player }
+                }) {
+                announceWinner(player)
+                return true
             }
         }
-    ////Функція перевірки перемоги O
-    fun chakingWinO() {
-        while (true) {
-            if (bind.but.text == o && bind.but4.text == o && bind.but7.text == o) {
-                bind.textEnter.text = winO
-                checkWinO += 1
-                reset()
-            }
-            if (bind.but2.text == o && bind.but5.text == o && bind.but8.text == o) {
-                bind.textEnter.text = winO
-                checkWinO += 1
-                reset()
-            }
-            if (bind.but3.text == o && bind.but6.text == o && bind.but9.text == o) {
-                bind.textEnter.text = winO
-                checkWinO += 1
-                reset()
-            }
-            if (bind.but.text == o && bind.but2.text == o && bind.but3.text == o) {
-                bind.textEnter.text = winO
-                checkWinO += 1
-                reset()
-            }
-            if (bind.but4.text == o && bind.but5.text == o && bind.but6.text == o) {
-                bind.textEnter.text = winO
-                checkWinO += 1
-                reset()
-            }
-            if (bind.but7.text == o && bind.but8.text == o && bind.but9.text == o) {
-                bind.textEnter.text = winO
-                checkWinO += 1
-                reset()
-            }
-            if (bind.but.text == o && bind.but5.text == o && bind.but9.text == o) {
-                bind.textEnter.text = winO
-                checkWinO += 1
-                reset()
-            }
-            if (bind.but3.text == o && bind.but5.text == o && bind.but7.text == o) {
-                bind.textEnter.text = winO
-                checkWinO += 1
-                reset()
-            }
-            bind.chackWinO.text = checkWinO.toString()
-            bind.chackWinX.text = checkWinX.toString()
-            resetDraw()
-            break
-        }
+        return false
     }
-    //Функція відповідає за нічию
-    fun resetDraw() {
-        if (bind.but.text != "" && bind.but2.text != "" && bind.but3.text != "" &&
-            bind.but4.text != "" && bind.but5.text != "" && bind.but6.text != "" &&
-            bind.but7.text != "" && bind.but8.text != "" && bind.but9.text != ""
-        ) {
-            reset()
+    // Припустимо, ви маєте функцію для обробки натискання кнопки:
+    fun onButtonClick(button: View) {
+        val index = button.tag.toString().toInt() - 1 // Використовуйте tag кнопок, щоб визначити індекс
+        if (boardState[index] == null && !checkWin()) { // Додано перевірку на перемогу, щоб запобігти зміні стану після перемоги
+            boardState[index] = if (check == 1) x else o
+            button as Button
+            button.text = boardState[index]
+            if (checkWin()) { // Перевіряємо, чи виграв хтось після останнього ходу
+                // Переможця оголошено в методі checkWin
+            } else if (boardState.all { it != null }) {
+                // Логіка для оголошення нічиєї, якщо дошка повністю заповнена
+                bind.textEnter.text = getString(R.string.tie)
+                resetBoard()
+            } else {
+                togglePlayer() // Зміна гравця, якщо гра продовжується
+            }
         }
     }
 }
