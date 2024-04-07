@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">XvsO</string>
     <string name="winX">X Wins</string>
@@ -34,5 +35,4 @@
         <item>English</item>
         <item>Polski</item>
     </string-array>
-
 </resources>

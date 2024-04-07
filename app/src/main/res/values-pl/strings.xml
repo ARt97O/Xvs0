@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XvsO</string>
+    <string name="winX">X wygrywa</string>
+    <string name="winO">O wygrywa</string>
+    <string name="nowX">Tura X</string>
+    <string name="nowO">Tura O</string>
+    <string name="chackWinX">X wygrał</string>
+    <string name="chackWinO">O wygrał</string>
+    <string name="tie">Remis</string>
+    <string name="title_activity_settings">Ustawienia</string>
+
+    <string name="messages_header">Wiadomości</string>
+    <string name="signature_title">Twój podpis</string>
+    <string name="reply_title">Domyślna akcja odpowiedzi</string>
+    <string name="sync_header">Synchronizacja</string>
+
+    <string name="settings">Ustawienia</string>
+    <string name="select_language">Wybierz język</string>
+    <string name="change_language">Zmień język</string>
+    <string name="language_change_restart">Aplikacja zostanie uruchomiona ponownie, aby zmienić język. Kontynuować?</string>
+    <string name="yes">Tak</string>
+    <string name="no">Nie</string>
+    <string name="but_site">Odwiedź stronę aplikacji</string>
+
+    <string name="attachment_title">Pobieranie załączników</string>
+    <string name="attachment_summary_on">Automatyczne pobieranie włączone</string>
+    <string name="attachment_summary_off">Pobieranie tylko na żądanie</string>
+
+    <string name="update_now">Zaktualizuj teraz</string>
+    <string name="check_for_updates_status">Sprawdź aktualizacje</string>
+
+    <string-array name="language_options">
+        <item>Українська</item>
+        <item>English</item>
+        <item>Polski</item>
+    </string-array>
+</resources>

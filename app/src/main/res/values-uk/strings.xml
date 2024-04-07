@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">XvsO</string>
+    <string name="winX">X переміг</string>
+    <string name="winO">O переміг</string>
+    <string name="nowX">Хід X</string>
+    <string name="nowO">Хід O</string>
+    <string name="chackWinX">X виграв</string>
+    <string name="chackWinO">O виграв</string>
+    <string name="tie">Нічия</string>
+    <string name="title_activity_settings">Налаштування</string>
+
+    <string name="messages_header">Повідомлення</string>
+    <string name="signature_title">Ваш підпис</string>
+    <string name="reply_title">Стандартна дія відповіді</string>
+    <string name="sync_header">Синхронізація</string>
+
+    <string name="settings">Налаштування</string>
+    <string name="select_language">Вибрати мову</string>
+    <string name="change_language">Змінити мову</string>
+    <string name="language_change_restart">Додаток буде перезапущено для зміни мови. Продовжити?</string>
+    <string name="yes">Так</string>
+    <string name="no">Ні</string>
+    <string name="but_site">Відвідати сайт додатку</string>
+
+    <string name="attachment_title">Завантаження вкладень</string>
+    <string name="attachment_summary_on">Автоматичне завантаження вкладень</string>
+    <string name="attachment_summary_off">Завантажувати вкладення лише за запитом</string>
+
+    <string name="update_now">Оновити зараз</string>
+    <string name="check_for_updates_status">Перевірити наявність оновлень</string>
+
+    <string-array name="language_options">
+        <item>Українська</item>
+        <item>English</item>
+        <item>Polski</item>
+    </string-array>
+</resources>

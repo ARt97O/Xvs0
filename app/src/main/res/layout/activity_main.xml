@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#000000">
 
     <Button
         android:id="@+id/but1"
@@ -13,6 +13,8 @@
         android:onClick="onButtonClick"
         android:textSize="40sp"
         android:tag="1"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_custom_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.176"
@@ -27,6 +29,8 @@
         android:onClick="onButtonClick"
         android:textSize="40sp"
         android:tag="2"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_custom_background"
         app:layout_constraintEnd_toEndOf="@id/but1"
         app:layout_constraintStart_toStartOf="@id/but1"
         app:layout_constraintTop_toBottomOf="@id/but1"
@@ -39,6 +43,8 @@
         android:onClick="onButtonClick"
         android:textSize="40sp"
         android:tag="3"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_custom_background"
         app:layout_constraintEnd_toEndOf="@id/but2"
         app:layout_constraintStart_toStartOf="@id/but2"
         app:layout_constraintTop_toBottomOf="@id/but2"
@@ -51,6 +57,8 @@
         android:onClick="onButtonClick"
         android:textSize="40sp"
         android:tag="4"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_custom_background"
         app:layout_constraintBottom_toBottomOf="@id/but1"
         app:layout_constraintStart_toEndOf="@id/but1"
         app:layout_constraintTop_toTopOf="@id/but1"
@@ -63,6 +71,8 @@
         android:onClick="onButtonClick"
         android:textSize="40sp"
         android:tag="5"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_custom_background"
         app:layout_constraintEnd_toEndOf="@id/but4"
         app:layout_constraintStart_toStartOf="@id/but4"
         app:layout_constraintTop_toBottomOf="@id/but4"
@@ -75,6 +85,8 @@
         android:onClick="onButtonClick"
         android:textSize="40sp"
         android:tag="6"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_custom_background"
         app:layout_constraintEnd_toEndOf="@id/but5"
         app:layout_constraintStart_toStartOf="@id/but5"
         app:layout_constraintTop_toBottomOf="@id/but5"
@@ -87,6 +99,8 @@
         android:onClick="onButtonClick"
         android:textSize="40sp"
         android:tag="7"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_custom_background"
         app:layout_constraintBottom_toBottomOf="@id/but4"
         app:layout_constraintStart_toEndOf="@id/but4"
         app:layout_constraintTop_toTopOf="@id/but4"
@@ -99,6 +113,8 @@
         android:onClick="onButtonClick"
         android:textSize="40sp"
         android:tag="8"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_custom_background"
         app:layout_constraintEnd_toEndOf="@id/but7"
         app:layout_constraintStart_toStartOf="@id/but7"
         app:layout_constraintTop_toBottomOf="@id/but7"
@@ -111,6 +127,8 @@
         android:onClick="onButtonClick"
         android:textSize="40sp"
         android:tag="9"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_custom_background"
         app:layout_constraintEnd_toEndOf="@id/but8"
         app:layout_constraintStart_toStartOf="@id/but8"
         app:layout_constraintTop_toBottomOf="@id/but8"
@@ -122,6 +140,7 @@
         android:layout_marginBottom="16dp"
         android:text="0"
         android:textSize="20sp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/but4"
         app:layout_constraintEnd_toEndOf="@+id/but4"
         app:layout_constraintStart_toStartOf="@+id/but4" />
@@ -132,7 +151,9 @@
         android:layout_height="100dp"
         android:layout_marginBottom="160dp"
         android:text="0"
-        android:textSize="48sp"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:background="#444444"
         app:layout_constraintBottom_toTopOf="@+id/but1"
         app:layout_constraintEnd_toEndOf="@+id/but1"
         app:layout_constraintStart_toStartOf="@+id/but1" />
@@ -142,7 +163,9 @@
         android:layout_width="120dp"
         android:layout_height="100dp"
         android:text="0"
-        android:textSize="48sp"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:background="#444444"
         app:layout_constraintBottom_toBottomOf="@+id/chackWinX"
         app:layout_constraintEnd_toEndOf="@+id/but7"
         app:layout_constraintStart_toStartOf="@+id/but7"
@@ -156,6 +179,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/chackWinX"
         android:textSize="20dp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/chackWinX"
         app:layout_constraintEnd_toEndOf="@+id/chackWinX"
         app:layout_constraintStart_toStartOf="@+id/chackWinX" />
@@ -167,11 +191,22 @@
         android:layout_marginBottom="8dp"
         android:text="@string/chackWinO"
         android:textSize="20dp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/chackWinO"
         app:layout_constraintEnd_toEndOf="@+id/chackWinO"
         app:layout_constraintStart_toStartOf="@+id/chackWinO" />
 
-
+    <ImageButton
+        android:id="@+id/butOpenSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_manage"
+        app:layout_constraintBottom_toTopOf="@+id/textWinO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintStart_toStartOf="@+id/textWinO"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

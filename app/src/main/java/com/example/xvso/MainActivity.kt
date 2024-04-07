@@ -1,16 +1,20 @@
 package com.example.xvso
 
+import android.content.Context
+import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import com.example.xvso.databinding.ActivityMainBinding
-import kotlinx.coroutines.flow.combine
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     lateinit var bind: ActivityMainBinding
 
     var check = 2
+    var startPlayer = 2
     var howMuchXwin = 0
     var howMuchOwin = 0
     val x = "X"
@@ -30,8 +34,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadLocale()
         bind = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bind.root)
+
+        bind.butOpenSettings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun messageCouse(winner: String){
@@ -64,6 +74,9 @@ class MainActivity : AppCompatActivity() {
         listOf(bind.but1, bind.but2, bind.but3, bind.but4, bind.but5, bind.but6, bind.but7, bind.but8, bind.but9).forEach { it.text = "" }
         // Скинути гравця до початкового стану, якщо потрібно
         check = 2
+        startPlayer = if (startPlayer == 1) 2 else 1
+        check = startPlayer // Встановлюємо хто починає гру
+        togglePlayer() // Оновлюємо індикатор ход
         togglePlayer()
     }
 
@@ -80,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         }
         return false
     }
+
     // Припустимо, ви маєте функцію для обробки натискання кнопки:
     fun onButtonClick(button: View) {
         val index = button.tag.toString().toInt() - 1 // Використовуйте tag кнопок, щоб визначити індекс
@@ -98,4 +112,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun loadLocale() {
+        val sharedPref = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val language = sharedPref.getString("Language", Locale.getDefault().language) ?: Locale.getDefault().language
+        val country = sharedPref.getString("Country", "") ?: ""
+        val locale = if (country.isNotEmpty()) Locale(language, country) else Locale(language)
+        Locale.setDefault(locale)
+
+        val config = Configuration(resources.configuration)
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+        // recreate() // Видалено для уникнення зациклення
+    }
+
 }
+
