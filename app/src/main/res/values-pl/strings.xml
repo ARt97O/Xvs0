@@ -21,7 +21,8 @@
     <string name="language_change_restart">Aplikacja zostanie uruchomiona ponownie, aby zmienić język. Kontynuować?</string>
     <string name="yes">Tak</string>
     <string name="no">Nie</string>
-    <string name="but_site">Odwiedź stronę aplikacji</string>
+    <string name="but_site">Dowiedz się o naszym innym projekcie BeatSeeker</string>
+
 
     <string name="attachment_title">Pobieranie załączników</string>
     <string name="attachment_summary_on">Automatyczne pobieranie włączone</string>

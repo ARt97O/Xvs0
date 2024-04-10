@@ -42,8 +42,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
+        bind.butReset.setOnClickListener {
+            resetBoard()
+            howMuchXwin = 0 // Resets X wins counter
+            howMuchOwin = 0 // Resets O wins counter
+            updateWinCounters() // Updates the UI for win counters
+        }
     }
-
     private fun messageCouse(winner: String){
         val message = if (winner == x) getString(R.string.chackWinX) else getString(R.string.chackWinO)
         bind.textEnter.text = message

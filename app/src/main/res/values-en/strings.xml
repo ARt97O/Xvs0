@@ -21,7 +21,8 @@
     <string name="language_change_restart">The app will be restarted to change the language. Continue?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="but_site">Visit App Site</string>
+    <string name="but_site">Learn about our other project BeatSeeker</string>
+
 
     <string name="attachment_title">Download Attachments</string>
     <string name="attachment_summary_on">Automatic download enabled</string>
